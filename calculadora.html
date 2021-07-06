@@ -1,0 +1,97 @@
+<html>
+  <script language="javascript">
+   
+    op=""; //operadores globais.
+    num1="";
+    num2="";
+    resp="";
+   
+       function mostra(x){
+  
+       document.formulario.calculo.value += x; 
+       }                                        
+   
+       function coleta(y){
+       if(op==""){                             
+          op=y;                                
+          num1=document.formulario.calculo.value;
+          document.formulario.calculo.value=''; 
+       }
+       else{
+         alert ("Não é possível realizar duas operacões");
+       }  
+    
+    
+   
+       }
+   
+       function calcula(){
+       if(op==""){
+         alert ("Selecione uma operaçao"); 
+       }
+       else{
+         num2=document.formulario.calculo.value;
+         resp=num1 + op + num2;
+         document.formulario.calculo.value=eval(resp);
+                                                       
+       }
+      
+       }
+
+       function novocalculo(){
+         num1="";
+         num2="";
+         op="";
+         resp="";
+         document.formulario.calculo.value="";
+        }
+       function limpa(){
+         document.formulario.calculo.value=""; 
+  
+       }      
+            
+   
+</script>
+<body bgcolor="white"> 
+<center>
+
+ <table border="4" bordercolor="white">
+  <form name="formulario">              
+       <input type="text" id="calculo" >
+  </form>
+
+  <tr>
+    <td><input type="button" value="7    " id="botao7" onclick="mostra(7);"></td><!--onclick chama a funçao mostra quando clicado-->
+    <td><input type="button" value="8    " id="botao8" onclick="mostra(8);"></td>
+    <td><input type="button" value="9    " id="botao9" onclick="mostra(9);"></td>
+    <td><input type="button" value="+     " id="botao+" onclick="coleta('+');"></td><!--chama a funçao coleta-->
+  </tr>
+
+  <tr>
+   <td><input type="button" value="4    " id="botao4" onclick="mostra(4);"></td>
+   <td><input type="button" value="5    " id="botao5" onclick="mostra(5);"></td>
+   <td><input type="button" value="6    " id="botao6" onclick="mostra(6);"></td>
+   <td><input type="button" value="-      " id="botao-" onclick="coleta('-');"></td>
+  </tr>
+
+  <tr>
+   <td><input type="button" value="1    " id="botao1" onclick="mostra(1);"></td>
+   <td><input type="button" value="2    " id="botao2" onclick="mostra(2);"></td>
+   <td><input type="button" value="3    " id="botao3" onclick="mostra(3);"></td>
+   <td><input type="button" value="*      " id="botao*" onclick="coleta('*');"></td>
+  </tr>
+
+  <tr>
+   <td><input type="button" value="0    " id="botao0" onclick="mostra(0);"/></td>
+   <td><input type="button" value="CE" id="rest" onclick="novocalculo();"/></td>
+   <td><input type="button" value="=    " id="botao=" onclick="calcula();"/></td>
+   <td><input type="button" value="/      " id="botao/" onclick="coleta('/');"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="RS" id="limpa" onclick="limpa();"> </td>
+    <td><input type="button" value=".     " id="ponto" onclick="mostra('.');"> </td>
+  
+  </tr>
+ </table>
+
+
